@@ -768,8 +768,7 @@ module Signet
         if @expires_at
           @expires_at
         elsif @issued_at.class == Time
-          binding.pry
-          nil
+          return nil
         elsif @issued_at && @expires_in
           return @issued_at + @expires_in if @issued_at.kind_of? DateTime
           return DateTime.parse(@issued_at) + @expires_in
