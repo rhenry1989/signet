@@ -765,6 +765,8 @@ module Signet
       #
       # @return [Integer] The access token lifetime.
       def expires_at
+        binding.pry
+        nil
         if @expires_at
           @expires_at
         elsif @issued_at && @expires_in
