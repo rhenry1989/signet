@@ -765,10 +765,11 @@ module Signet
       #
       # @return [Integer] The access token lifetime.
       def expires_at
-        binding.pry
-        nil
         if @expires_at
           @expires_at
+        elsif @issued_at.class == Time
+          binding.pry
+          nil
         elsif @issued_at && @expires_in
           return @issued_at + @expires_in if @issued_at.kind_of? DateTime
           return DateTime.parse(@issued_at) + @expires_in
